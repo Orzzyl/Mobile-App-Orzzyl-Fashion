@@ -1,6 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+HU:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 body{
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #EDEDED; */
 }
 .overall-contents-container{
     display: flex;
@@ -60,7 +67,50 @@ body{
     object-fit: cover;
         border-radius: 100%;
 }
-
+.content-3{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.content-3 h1{
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    font-family: "playwrite HU", cursive;
+    margin: 0;
+}
+span{
+    color: #704F38; 
+}
+.content-3 p{
+    font-size: 0.8rem;
+    text-align: center;
+    font-family: "playwrite HU", cursive;
+    margin: 0;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+button{
+    background-color: #704F38; /* Tomato color */
+    color: #EDEDED;
+    border: none;
+    padding: 10px 50px;
+ 
+    font-size: 1rem;
+    font-family: "playwrite HU", cursive;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
 
 @media screen and (max-width: 600px) {
     .mini-content-1 {
