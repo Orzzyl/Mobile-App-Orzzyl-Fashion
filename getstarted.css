@@ -136,6 +136,7 @@ a{
 
     .mini-content-1 {
         width: 150px;
+        height: 400px;
     }
     .mini-content-1 img {
         width: 100%;
@@ -145,7 +146,7 @@ a{
     .mini-content-2{
     width: 130px;
     object-fit: cover;
-    height: 300px;
+    height: 270px;
 
 }
 .mini-content-3{
