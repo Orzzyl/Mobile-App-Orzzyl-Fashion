@@ -10,6 +10,7 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
+  <script type="module"></script>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Playwrite+HU:wght@100..400&display=swap');
@@ -237,6 +238,43 @@ function myRegPassword() {
   }
 }
 
+</script>
+<script type="module">
+   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+  import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyADc-1PUcmzE-Soyc99BTQ_K0tHNRrTl3o",
+    authDomain: "orzzyl-fashion.firebaseapp.com",
+    databaseURL: "https://orzzyl-fashion-default-rtdb.firebaseio.com",
+    projectId: "orzzyl-fashion",
+    storageBucket: "orzzyl-fashion.firebasestorage.app",
+    storageBucket: "orzzyl-fashion.appspot.com",
+    appId: "1:226028183661:web:03e8ea62511c34cb9c9f64"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+const loginForm = document.querySelector(".input-group");
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault(); // prevent form refresh
+    const email = document.getElementById("logEmail").value;
+    const password = document.getElementById("logPassword").value;
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Login success
+        alert("Login successful!");
+        window.location.href = "landingpage.html"; // redirect on login
+      })
+      .catch((error) => {
+        alert("Login failed: " + error.message);
+      });
+  });
 </script>
 </body>
 </html>

@@ -11,6 +11,7 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
+  <script type="module"></script>
 </head>
 <body>
     <section>
@@ -27,17 +28,16 @@
             <input type="email" class="input-box" id="regEmail" required />
             <label for="regEmail">Email Address</label>
           </div>
-          <div class="input-field">
-            <input type="password" class="input-box" id="regPassword" required />
-            <label for="regPassword">Password</label>
-          <div class="eye-area">
-  <div class="eye-box" onclick="myRegPassword()">
-    <i class="fa-regular fa-eye" id="eye-2"></i>
-    <i class="fa-regular fa-eye-slash" id="eye-slash-2"></i>
+<div class="input-field">
+  <input type="password" class="input-box" id="regPassword" required />
+  <label for="regPassword">Password</label>
+  <div class="eye-area">
+    <div class="eye-box" onclick="myRegPassword()">
+      <i class="fa-regular fa-eye" id="eye-2"></i>
+      <i class="fa-regular fa-eye-slash" id="eye-slash-2" style="display: none;"></i>
+    </div>
   </div>
 </div>
-
-          </div>
           <div class="remember">
             <input type="checkbox" class="check" id="formCheck2" required/>
             <label for="formCheck2">Agree with <a href="">Terms & Conditions</a></label>
@@ -65,10 +65,69 @@
       eyeSlash.style.display = "none";
     }
   }
-    document.getElementById("register-button").addEventListener("click", function(event) {
-        event.preventDefault(); // Prevent form submission
-        alert("Registration successful!"); // Show success message
-    });
+</script>
+<script type="module">
+   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+  import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyADc-1PUcmzE-Soyc99BTQ_K0tHNRrTl3o",
+    authDomain: "orzzyl-fashion.firebaseapp.com",
+    databaseURL: "https://orzzyl-fashion-default-rtdb.firebaseio.com",
+    projectId: "orzzyl-fashion",
+    storageBucket: "orzzyl-fashion.firebasestorage.app",
+    storageBucket: "orzzyl-fashion.appspot.com",
+    appId: "1:226028183661:web:03e8ea62511c34cb9c9f64"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  document.getElementById("register-button").addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    const username = document.getElementById("regUsername").value.trim();
+    const email = document.getElementById("regEmail").value.trim();
+    const password = document.getElementById("regPassword").value.trim();
+    const termsChecked = document.getElementById("formCheck2").checked;
+
+    if (!termsChecked) {
+      alert("Please agree to the Terms and Conditions.");
+      return;
+    }
+
+    if (!username || !email || !password) {
+      alert("All fields are required.");
+      return;
+    }
+
+    try {
+      // Create user in Firebase Auth
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Send email verification
+      await sendEmailVerification(user);
+
+      // Save additional data in Firestore
+      await setDoc(doc(db, "users", user.uid), {
+        username: username,
+        email: email,
+        createdAt: new Date()
+      });
+
+      alert("Registration successful! Please check your email to verify your account.");
+
+      // Redirect to login page
+      window.location.href = "login.html";
+
+    } catch (error) {
+      alert("Error: " + error.message);
+    }
+  });
 </script>
 </body>
 </html>
