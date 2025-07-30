@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orzzyl Fashion</title>
+    <link rel="stylesheet" href="signup.css">
+      <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+<body>
+    <section>
+        <div class="signup-container">
+            <h1>Create An Account</h1>
+            <p>Welcome, Orzzyl Fashion <br>Fill Your Information below or register with your social media account</p>
+     <div class="form-container">
+           <form class="input-group">
+          <div class="input-field">
+            <input type="text" class="input-box" id="regUsername" required />
+            <label for="regUsername">Username</label>
+          </div>
+          <div class="input-field">
+            <input type="email" class="input-box" id="regEmail" required />
+            <label for="regEmail">Email Address</label>
+          </div>
+          <div class="input-field">
+            <input type="password" class="input-box" id="regPassword" required />
+            <label for="regPassword">Password</label>
+            <div class="eye-area">
+              <div class="eye-box" onclick="myRegPassword()">
+                <i class="fa-regular fa-eye" id="eye-2"></i>
+                <i class="fa-regular fa-eye-slash" id="eye-slash-2"></i>
+              </div>
+            </div>
+          </div>
+          <div class="remember">
+            <input type="checkbox" class="check" id="formCheck2" />
+            <label for="formCheck2">Agree with <a href="">Terms & Conditions</a></label>
+          </div>
+          <div class="input-field">
+            <button type="submit" class="input-submit" id="register-button">Sign Up</button>
+          </div>
+        </form>
+     </div>
+        </div>
+    </section>
+<script>
+  function myRegPassword() {    
+    var x = document.getElementById("regPassword");
+    var eye = document.getElementById("eye-2");
+    var eyeSlash = document.getElementById("eye-slash-2");
+
+    if (x.type === "password") {
+      x.type = "text";
+      eye.style.display = "none";
+      eyeSlash.style.display = "block";
+    } else {
+      x.type = "password";
+      eye.style.display = "block";
+      eyeSlash.style.display = "none";
+    }
+  }
+    document.getElementById("register-button").addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent form submission
+        alert("Registration successful!"); // Show success message
+    });
+</script>
+</body>
+</html>
