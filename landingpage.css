@@ -53,3 +53,113 @@ body {
     .filter-btn:hover {
       background: #5a3c2b;
     }
+      .slider-container {
+      position: relative;
+      overflow: hidden;
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
+      border-radius: 20px;
+      background: #EDEDED;
+    }
+
+    .slider-wrapper {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .slide {
+      min-width: 100%;
+      box-sizing: border-box;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .slide h1 {
+      font-size: 2rem;
+      color: #704F38;
+      margin: 0;
+    }
+
+    .slide p {
+      font-size: 1rem;
+      color: #333;
+      margin: 0;
+    }
+
+    .shop-button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #704F38;
+      color: white;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .collection-image {
+      width: 100%;
+      max-width: 300px;
+      height: 450px;
+      object-fit: cover;
+      margin: 0 auto;
+      border-radius: 20px;
+    }
+
+    .indicators {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 6px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background-color: #704F38;
+    }
+
+    .div-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      box-sizing: border-box;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(112, 79, 56, 0.08);
+    }
+
+    /* Responsive adjustments */
+    @media screen and (max-width: 900px) {
+      .div-container {
+        max-width: 95%;
+        padding: 12px;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .div-container {
+        max-width: 100%;
+        padding: 6px;
+        border-radius: 8px;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .slide h1 {
+        font-size: 1.5rem;
+      }
+
+      .shop-button {
+        font-size: 0.9rem;
+      }
+    }

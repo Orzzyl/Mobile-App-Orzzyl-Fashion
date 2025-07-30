@@ -269,6 +269,7 @@ const loginForm = document.querySelector(".input-group");
       .then((userCredential) => {
         // Login success
         alert("Login successful!");
+        document.querySelector(".input-group").reset(); // Reset form here
         window.location.href = "landingpage.html"; // redirect on login
       })
       .catch((error) => {

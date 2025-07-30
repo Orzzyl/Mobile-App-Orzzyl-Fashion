@@ -121,6 +121,9 @@
 
       alert("Registration successful! Please check your email to verify your account.");
 
+      // Clear the form fields
+      document.querySelector(".input-group").reset();
+
       // Redirect to login page
       window.location.href = "login.html";
 
