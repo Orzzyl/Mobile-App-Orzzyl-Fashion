@@ -96,7 +96,7 @@ span{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
     width: 100%;
 }
 button{
@@ -104,14 +104,15 @@ button{
     color: #EDEDED;
     border: none;
     padding: 10px 50px;
- 
     font-size: 1rem;
     font-family: "playwrite HU", cursive;
     cursor: pointer;
     border-radius: 30px;
     transition: background-color 0.3s ease;
 }
-
+a{
+    color: #704F38
+}
 @media screen and (max-width: 600px) {
     .mini-content-1 {
         width: 200px;
