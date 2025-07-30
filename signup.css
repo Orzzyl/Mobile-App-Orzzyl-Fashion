@@ -135,6 +135,6 @@ span {
       transition: 0.4s;
     }
     .input-submit:hover {
-      background: black;
+          background-color: #5a3c2b;
       box-shadow: 0px 4px 20px rgba(62, 9, 9, 0.32);
     }
