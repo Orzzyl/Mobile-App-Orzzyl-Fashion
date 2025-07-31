@@ -189,6 +189,9 @@ body {
       height: 40px;
       object-fit: cover;
     }
+    .example{
+      padding-bottom: 20px;
+    }
     .cards-container {
             display: flex;
             gap: 20px;
