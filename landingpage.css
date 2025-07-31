@@ -189,6 +189,47 @@ body {
       height: 40px;
       object-fit: cover;
     }
+    .cards-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+        }
+        .cards-container::-webkit-scrollbar { display: none; }
+        .card {
+            min-width: 3rem;
+            height: 2rem;
+            border-radius: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            border: solid 1px #704F38;
+            background: rgba(255, 255, 255, 0.1);
+            font-weight: bold;
+            cursor: grab;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 0 24px;
+        }
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            background: white;
+            color: black;
+        }
+        a{
+            text-decoration: none;
+            font-size: 0.7rem;
+            color: inherit;
+        }
+        a:hover {
+            color: inherit;
+        }
+        .names{
+            min-width: 2rem;
+        }
     /* Responsive adjustments */
     @media screen and (max-width: 900px) {
       .div-container {
@@ -214,3 +255,30 @@ body {
         font-size: 0.9rem;
       }
     }
+    .flash-sales-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.flash-sales-title {
+  font-size: 1rem;
+  color: #704F38;
+  margin: 0;
+}
+
+.flash-timer-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: #333;
+}
+
+.closing-label {
+  font-weight: 500;
+}
