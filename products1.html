@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Playwrite+HU:wght@100..400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+    
+    body {
+        font-family: "playwrite HU", cursive;
+        margin: 0;
+        padding: 0;
+        font-size: 0.8rem;
+    }
+    .product-header {
+        text-align: center;
+        background-color: #faf1eb;
+    }
+    .product-header h3 {
+        font-size: 1rem;
+        color: #704F38;
+       margin: 0;
+        font-family: "playwrite HU", cursive;
+    }
+    .produtct-image-container {
+       position: relative;
+    }
+    .product-image{
+        width: 100%;
+        height: auto;
+    }
+    .product-icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+        position: absolute;
+        top: 25px;
+        left: 10px;
+        gap: 180px
+    }
+    .icon-1, .icon-2 {
+        display: inline-block;
+        margin: 10px;
+        cursor: pointer;
+        background-color: #faf1eb;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        border: 1px solid #704F38;
+        transition: all 0.3s ease;
+    }
+    
+    .icon-1:hover, .icon-2:hover {
+        background-color: #704F38;
+        transform: scale(1.1);
+    }
+    
+    .icon-1:hover svg, .icon-2:hover svg {
+        fill: #fff;
+    }
+    
+    .icon-2.favorited {
+        background-color: #dc2626;
+        border-color: #dc2626;
+    }
+    
+    .icon-2.favorited svg {
+        fill: #fff;
+    }
+    
+    .product-details-image{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
+    .product-details-image img {
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 1px solid #704F38;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+    }
+.product-details-image img:hover {
+        transform: scale(1.1);
+    }
+    
+    .product-details-image img.active {
+        border: 3px solid #704F38;
+        transform: scale(1.05);
+    }
+    
+    .product-details{
+        margin: 20px;
+        font-family: "playwrite HU", cursive;
+    }
+    .product-details p {
+        margin: 0;
+    }
+.mini-product-details {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .item-rating-1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        font-size: 0.57rem;
+    }
+    .rating-1{
+        width: 20px;
+        height: 20px;
+    }
+ .size-options{
+    padding: 10px;
+ }
+.size-options h2{
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+.size-options button {
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        background-color: #704F38;
+        color: white;
+        cursor: pointer;
+        font-family: "playwrite HU", cursive;
+        font-size: 0.6rem;
+        padding: 5px 10px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+.size-options button:hover {
+        background-color: #5a3e2a;
+        transform: scale(1.05);
+    }
+    
+.size-options button.selected {
+        background-color: #5a3e2a;
+        transform: scale(1.05);
+    }
+
+
+.select-color {
+        font-size: 0.9rem;
+        padding: 10px;
+        margin: 0;
+    }
+    .color-options {
+        display: flex;
+        gap: 10px;
+        padding: 10px;
+    }
+    .color-options button {
+        width: 30px;
+        height: 30px;
+        border: none;
+        border-radius: 100%;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    .color-options button:hover {
+        transform: scale(1.1);
+        border: 2px solid #000;
+    }
+    
+    .color-options button.selected {
+        transform: scale(1.15);
+        border: 3px solid #704F38;
+    }
+    
+   .button1 {
+        background-color: #1E90FF;
+    }
+    .button2 {
+        background-color: #6B8E23;
+    }
+    .button3 {
+        background-color: #DC143C;
+    }
+    .button4 {
+        background-color: #8B4513;
+    }
+    .button5 {
+        background-color: #98FB98;
+    }
+    .button6 {
+        background-color: #FFD700;
+    }
+    .button7 {
+        background-color: #FFB6C1;
+    }
+
+.add-to-cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #704F38;
+}
+.add-to-cart h1{
+    font-size: 0.8rem;
+    width: 100px;
+}
+
+
+.add-to-cart-button {
+        background-color: #704F38;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-family: "playwrite HU", cursive;
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        transition: all 0.3s ease;
+    }
+    
+.add-to-cart-button:hover {
+        background-color: #5a3e2a;
+        transform: scale(1.05);
+    }
+    
+    @media (min-width: 375px) {
+        .product-icons {
+          gap: 240px;
+        }
+        .icon-1, .icon-2 {
+            width: 40px;
+            height: 40px;
+        }
+    }
+    @media (min-width: 425px) {
+        .product-icons {
+          gap: 280px;
+        }
+        .icon-1, .icon-2 {
+            width: 40px;
+            height: 40px;
+        }
+    }
+    @media (min-width: 768px) {
+        .product-icons {
+          gap: 600px;
+        }
+        .icon-1, .icon-2 {
+            width: 50px;
+            height: 50px;
+        }
+    }
+</style>
+<body>
+    
+<section class="product-page" id="">
+    <div class="product-header">
+        <h3>Product Details</h3>
+    </div>
+  <div class="product-image-container">
+    <img src="Images/neckslim4 (1).jpeg" alt="" class="product-image" id="mainProductImage"/>
+  </div>
+  <section class="product-icons">
+    <div class="icon-1" onclick="goBack()">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="M400-240 160-480l240-240 56 58-142 142h486v80H314l142 142-56 58Z"/></svg>
+    </div>
+    <div class="icon-2" id="favoriteBtn" onclick="toggleFavorite()">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg>
+    </div>
+  </section>
+</section>
+
+<section>
+    <div class="product-details-image">
+        <img src="Images/neckslim1.jpeg" alt="" onclick="changeMainImage(this)"/>
+         <img src="Images/neck slim2.jpeg" alt="" onclick="changeMainImage(this)" class="active"/>
+         <img src="Images/neckslim3.jpeg" alt="" onclick="changeMainImage(this)"/>
+          <img src="Images/neckslim4 (1).jpeg" alt="" onclick="changeMainImage(this)"/>
+            <img src="Images/neckslim5.jpeg" alt="" onclick="changeMainImage(this)"/>
+            <img src="Images/neckslim6.jpeg" alt="" onclick="changeMainImage(this)"/>
+            <img src="Images/neckslim7.jpeg" alt="" onclick="changeMainImage(this)"/>
+    </div>
+    <div class="product-details">
+        <div class="mini-product-details">
+            <p>Female's Style</p>
+        <p class="item-rating-1"><img src="Images/icons8-star-48.png" alt="rating star" class="rating-1"> 4.5 </p>
+        </div>
+        <h1>Neck Slim Dress</h1>
+        <p> Featuring a sleek neckline and tailored fit, this dress effortlessly highlights the natural contours of the body while remaining cool and breathable under the summer sun. Crafted from premium stretch fabric, its fluid silhouette moves gracefully from daylight sophistication to evening charm</p>
+    </div>
+    <!-- Size Buttons -->
+<div class="size-options">
+  <h2>Select Size</h2>
+  <button class="size-buttons" type="button" tabindex="0" aria-label="Size S" title="Size S" onclick="selectSize(this)">S</button>
+  <button class="size-buttons" type="button" tabindex="0" aria-label="Size M" title="Size M" onclick="selectSize(this)">M</button>
+  <button class="size-buttons" type="button" tabindex="0" aria-label="Size L" title="Size L" onclick="selectSize(this)">L</button>
+  <button class="size-buttons" type="button" tabindex="0" aria-label="Size XL" title="Size XL" onclick="selectSize(this)">XL</button>
+  <button class="size-buttons" type="button" tabindex="0" aria-label="Size XXL" title="Size XXL" onclick="selectSize(this)">XXL</button>
+  <button class="size-buttons" type="button" tabindex="0" aria-label="Size XXXL" title="Size XXXL" onclick="selectSize(this)">XXXL</button>
+</div>
+
+<!-- Color Buttons -->
+<h2 class="select-color">Select Color</h2>
+<div class="color-options">
+  <button class="color-button button1" type="button" tabindex="0" aria-label="Blue" title="Blue" onclick="selectColor(this)"></button>
+  <button class="color-button button2 selected" type="button" tabindex="0" aria-label="Green" title="Green" onclick="selectColor(this)"></button>
+  <button class="color-button button3" type="button" tabindex="0" aria-label="Red" title="Red" onclick="selectColor(this)"></button>
+  <button class="color-button button4" type="button" tabindex="0" aria-label="Brown" title="Brown" onclick="selectColor(this)"></button>
+  <button class="color-button button5" type="button" tabindex="0" aria-label="LightGreen" title="LightGreen" onclick="selectColor(this)"></button>
+  <button class="color-button button6" type="button" tabindex="0" aria-label="Yellow" title="Yellow" onclick="selectColor(this)"></button>
+  <button class="color-button button7" type="button" tabindex="0" aria-label="Pink" title="Pink" onclick="selectColor(this)"></button>
+</div>
+
+<!-- Add To Cart Button -->
+<div class="add-to-cart">
+  <h1>Total Price: $75.00</h1>
+  <button class="add-to-cart-button" type="button" tabindex="0" aria-label="Add To Cart" title="Add To Cart" onclick="addToCart()">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffff"><path d="M240-80q-33 0-56.5-23.5T160-160v-480q0-33 23.5-56.5T240-720h80q0-66 47-113t113-47q66 0 113 47t47 113h80q33 0 56.5 23.5T800-640v480q0 33-23.5 56.5T720-80H240Zm0-80h480v-480h-80v80q0 17-11.5 28.5T600-520q-17 0-28.5-11.5T560-560v-80H400v80q0 17-11.5 28.5T360-520q-17 0-28.5-11.5T320-560v-80h-80v480Zm160-560h160q0-33-23.5-56.5T480-800q-33 0-56.5 23.5T400-720ZM240-160v-480 480Z"/></svg>
+    Add To Cart
+  </button>
+</div>
+</section>
+
+<script>
+    let isFavorited = false;
+    let selectedSize = null;
+    let selectedColor = 'Brown'; // Default selected color
+
+    // Function to change main image when thumbnail is clicked
+    function changeMainImage(clickedImage) {
+        const mainImage = document.getElementById('mainProductImage');
+        const allThumbnails = document.querySelectorAll('.product-details-image img');
+        
+        // Update main image source
+        mainImage.src = clickedImage.src;
+        
+        // Remove active class from all thumbnails
+        allThumbnails.forEach(img => img.classList.remove('active'));
+        
+        // Add active class to clicked thumbnail
+        clickedImage.classList.add('active');
+    }
+
+    // Function to toggle favorite status
+    function toggleFavorite() {
+        const favoriteBtn = document.getElementById('favoriteBtn');
+        isFavorited = !isFavorited;
+        
+        if (isFavorited) {
+            favoriteBtn.classList.add('favorited');
+            // Optional: Show a message or save to favorites list
+            showMessage('Added to favorites!');
+        } else {
+            favoriteBtn.classList.remove('favorited');
+            showMessage('Removed from favorites!');
+        }
+    }
+
+    // Function to go back (you can customize this based on your needs)
+    function goBack() {
+        // Option 1: Go back in browser history
+        if (window.history.length > 1) {
+            window.history.back();
+        } else {
+            // Option 2: Redirect to a specific page if no history
+            window.location.href = 'index.html'; // Change to your main page
+        }
+        
+        // Option 3: You could also just show a message
+        // showMessage('Going back...');
+    }
+
+    // Function to select size
+    function selectSize(button) {
+        // Remove selected class from all size buttons
+        document.querySelectorAll('.size-buttons').forEach(btn => btn.classList.remove('selected'));
+        
+        // Add selected class to clicked button
+        button.classList.add('selected');
+        selectedSize = button.textContent;
+        
+        showMessage(`Size ${selectedSize} selected`);
+    }
+
+    // Color to image mapping
+    const colorImageMap = {
+        'Blue': 'Images/neckslim1.jpeg',
+        'Green': 'Images/neck slim2.jpeg',
+        'Red': 'Images/neckslim3.jpeg',
+        'Brown': 'Images/neckslim4 (1).jpeg',
+        'LightGreen': 'Images/neckslim5.jpeg',
+        'Yellow': 'Images/neckslim6.jpeg',
+        'Pink': 'Images/neckslim7.jpeg'
+    };
+
+    // Function to select color
+    function selectColor(button) {
+        // Remove selected class from all color buttons
+        document.querySelectorAll('.color-button').forEach(btn => btn.classList.remove('selected'));
+        
+        // Add selected class to clicked button
+        button.classList.add('selected');
+        selectedColor = button.getAttribute('title');
+        
+        // Change main image based on selected color
+        const mainImage = document.getElementById('mainProductImage');
+        const newImageSrc = colorImageMap[selectedColor];
+        
+        if (newImageSrc) {
+            mainImage.src = newImageSrc;
+            
+            // Update active thumbnail to match the new main image
+            const allThumbnails = document.querySelectorAll('.product-details-image img');
+            allThumbnails.forEach(img => {
+                img.classList.remove('active');
+                if (img.src.includes(newImageSrc.split('/').pop())) {
+                    img.classList.add('active');
+                }
+            });
+        }
+        
+        showMessage(`${selectedColor} color selected`);
+    }
+
+    // Function to add to cart
+    function addToCart() {
+        if (!selectedSize) {
+            showMessage('Please select a size first!');
+            return;
+        }
+        
+        const cartItem = {
+            name: 'Brown Gown',
+            size: selectedSize,
+            color: selectedColor,
+            price: 85.00
+        };
+        
+        // Here you would typically save to localStorage or send to server
+        console.log('Adding to cart:', cartItem);
+        showMessage(`Added ${cartItem.name} (${cartItem.color}, Size ${cartItem.size}) to cart!`);
+        
+        // Optional: Update cart counter, redirect to cart, etc.
+    }
+
+    // Utility function to show messages
+    function showMessage(message) {
+        // Create a temporary message element
+        const messageDiv = document.createElement('div');
+        messageDiv.textContent = message;
+        messageDiv.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #704F38;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 1000;
+            font-family: "playwrite HU", cursive;
+            font-size: 0.8rem;
+        `;
+        
+        document.body.appendChild(messageDiv);
+        
+        // Remove message after 3 seconds
+        setTimeout(() => {
+            document.body.removeChild(messageDiv);
+        }, 3000);
+    }
+
+    // Initialize the page
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set default selections
+        const defaultColorButton = document.querySelector('.button2'); // Brown color
+        if (defaultColorButton) {
+            defaultColorButton.classList.add('selected');
+        }
+        
+        // Set first thumbnail as active if none is set
+        const firstThumbnail = document.querySelector('.product-details-image img');
+        if (firstThumbnail && !document.querySelector('.product-details-image img.active')) {
+            firstThumbnail.classList.add('active');
+        }
+    });
+</script>
+</body>
+</html>
