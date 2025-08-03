@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+HU:wght@100..400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 body {
-  margin: 0;
+  margin: 0px;
   background: #fff;
   padding: 20px;
   font-family: "Playwrite HU", cursive;
@@ -287,6 +287,44 @@ a:hover {
   font-size: 0.6rem;
   color: #704f38;
   margin: 0;
+}
+.overall-menu-icon-container {
+padding: 30px;
+}
+.menu-icon-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #704f38;
+  color: white;
+  border-radius: 40px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  z-index: 1000;
+}
+.menu-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  
+}
+.menu-icon:hover {
+  background-color: white;
+  cursor: pointer;
+  border-radius: 100%;
+  padding: 10px; 
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+
+}
+.svg:hover {
+  fill:#704f38;
+
 }
 
 /* Responsive adjustments */
